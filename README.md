@@ -1,9 +1,14 @@
 # anxiety
-After you've downloaded the folder, go to the file initialize_human.m (located in the "MatlabCode" folder). 
-Then, change the DATA_DIR according to the data directory in your computer 
-Then, go to MAIN_ALL_Anxiety.m and run the script. This might take a few minutes, while two psychometric functions (vestibular and visual) are being generated for all participants.
-The figures will be saved to the "Data" folder (in fig, pdf and tif formats). 
+For plotting psychometric curves for each participant (and experimental condition):
+
+Download the entire project ("anxiety-main").
+Download and install the psignifit4 toolbox (from: https://github.com/wichmann-lab/psignifit) and make sure it is included in the Matlab path
+Go to the file initialize_human.m (located in the "MatlabCode" folder) and change the DATA_DIR according to the data directory in your computer.
+Go to MAIN_ALL_Anxiety.m and run the code. 
+The figures (two for each participant) will be saved to the "Data" folder (in fig, pdf and tif formats). 
+
 In addition to the separate psychometric functions, a result matrix containing data from all participants (post analysis) is produced, saved in the "All" folder.
-Then, open the groupAnalysisAnxietyMixedShira.m script and run it. This file performs further group analysis. The output figures (which accompany the paper) are saved in the "Group" folder.
+For group analysis, open the groupAnalysisAnxietyMixedShira.m code and run it. 
+This file performs further group analysis. The output figures are saved in the "Group" folder.
 
 
