@@ -2,7 +2,7 @@
 For plotting psychometric curves for each participant (and experimental condition):
 
 Download the entire project ("anxiety-main").
-Download and install the psignifit4 toolbox (from: https://github.com/wichmann-lab/psignifit) and make sure it is included in the Matlab path
+Download and install the psignifit4 toolbox (from: https://github.com/wichmann-lab/psignifit) and make sure it is included in the Matlab path (if you are unable to add it to path, copy the psignifit folder into the MatlabCode folder).
 Go to the file initialize_human.m (located in the "MatlabCode" folder) and change the DATA_DIR according to the data directory in your computer.
 Go to MAIN_ALL_Anxiety.m and run the code. 
 The figures (two for each participant) will be saved to the "Data" folder (in fig, pdf and tif formats). 
