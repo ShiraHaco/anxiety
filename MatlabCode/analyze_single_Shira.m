@@ -119,7 +119,7 @@ if plotfig %plotting the curve
         global is_new_pfit
         is_new_pfit = 1;
         %mat(mat==0)= nan;
-        getPfitData(mat, mat(:,1)')
+        subject_info=getPfitData(mat, mat(:,1)')
         AnaData= getPfitData(mat, mat(:,1)');
         hold on
         
@@ -142,6 +142,12 @@ if plotfig %plotting the curve
          s_Ves=scatter(mat(:,1),mat(:,2),sizeData,'MarkerEdgeColor',[0 0 0.8],'LineWidth',2)
          set(get(get(s_Ves,'Annotation'),'LegendInformation'),'IconDisplayStyle','off');
          p_Ves=plot(AnaData.xi, AnaData.pfitcurve,'color',[0 0 0.8],'LineStyle','-','LineWidth',5)
+         yBiasLine = [0:0.1:0.5];
+         xBiasLine = subject_info.bias.*ones(1,(length(yBiasLine)));
+         p_bias=plot(xBiasLine,yBiasLine,'k','LineStyle','--','LineWidth',0.3)
+         subject_info.bias68CI(2)-subject_info.bias68CI(1)
+         errorBias=errorbar(subject_info.bias,0.5,subject_info.bias68CI(2)-subject_info.bias,'horizontal','color',[0 0 0.8])
+
            title('Vestibular','fontsize',28);
            
         else %%visual
@@ -149,6 +155,12 @@ if plotfig %plotting the curve
          s_Vis=scatter(mat(:,1),mat(:,2),sizeData,'MarkerEdgeColor',[0.8 0 0],'LineWidth',2)
          set(get(get(s_Vis,'Annotation'),'LegendInformation'),'IconDisplayStyle','off');
          p_Vis=plot(AnaData.xi, AnaData.pfitcurve,'color',[0.8 0 0],'LineStyle','-','LineWidth',5)
+         yBiasLine = [0:0.1:0.5];
+         xBiasLine = subject_info.bias.*ones(1,(length(yBiasLine)));
+         p_bias=plot(xBiasLine,yBiasLine,'k','LineStyle','--','LineWidth',0.3)
+         subject_info.bias68CI(2)-subject_info.bias68CI(1)
+         errorBias=errorbar(subject_info.bias,0.5,subject_info.bias68CI(2)-subject_info.bias,'horizontal','color',[0.8 0 0])
+
            title('Visual','fontsize',28);
         end
        
@@ -161,6 +173,6 @@ end
     savefig(gcf,filename_fig)
     
 if PLOTALL
-    close(gcf)
+   close(gcf)
 end
 end
